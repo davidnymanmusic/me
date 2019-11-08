@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import IsScrolling from 'react-is-scrolling';
 import Fade from 'react-reveal/Fade';
 import Reveal from 'react-reveal/Reveal';
 import Zoom from 'react-reveal/Zoom';
 
 import { useScroll } from '../hooks/useScroll';
-import { peach } from '../constants';
+import { peach, isMobile } from '../constants';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import { GoMarkGithub } from 'react-icons/go';
 import { FaTwitter, FaLinkedin } from 'react-icons/fa';
@@ -15,7 +15,9 @@ const FadeStop = props =>
   props.stop ? <Fade {...props}>{props.children}</Fade> : <>{props.children}</>;
 
 function Resume({ isScrolling, isScrollingDown, isScrollingUp }) {
-  const size = { height: 100, width: 100 };
+  const size = isMobile()
+    ? { height: 30, width: 30, padding: '0 24px' }
+    : { height: 70, width: 70, padding: '0 20px' };
   const icons = [
     {
       icon: <GoMarkGithub className="icon" style={size} />,
@@ -42,15 +44,26 @@ function Resume({ isScrolling, isScrollingDown, isScrollingUp }) {
   const { scrollY } = useScroll();
   const { height, width } = useWindowDimensions();
   const duration = isScrollingUp ? 2121 : 3333;
+
+  useEffect(() => {
+    if (isMobile()) {
+      setStop(false);
+    }
+  }, []);
+
   return (
-    <div className="resume" style={{ height: '2000px' }} ref={target}>
+    <div
+      className={isMobile() ? 'resume-mobile' : 'resume'}
+      style={{ height: '2000px' }}
+      ref={target}
+    >
       <div style={{ position: 'sticky', top: 100 }}>
-        <h1>Scrolling position - {scrollY}</h1>
-        {height !== scrollY ? (
+        <>Scrolling position - {scrollY}</>
+        {/* {height !== scrollY ? (
           <ReadingProgress target={target} />
         ) : (
           <div className="reading-progress-bar-static"></div>
-        )}
+        )} */}
         <div style={{ color: peach }}>
           <FadeStop
             stop={stop}
@@ -97,8 +110,11 @@ function Resume({ isScrolling, isScrollingDown, isScrollingUp }) {
             </p>
           </FadeStop>
         </div>
+        <Reveal when={scrollY > 250}>
+          <hr></hr>
+        </Reveal>
         <div style={{ color: peach }}>
-          <FadeStop stop={stop} when={scrollY > 330} duration={duration}>
+          <FadeStop stop={stop} when={scrollY > 350} duration={duration}>
             <h1>Dolore officia mollit aliqua deserunt deserunt commodo.</h1>
             <p>
               In ullamco magna occaecat ex labore ullamco et fugiat adipisicing.
@@ -114,6 +130,9 @@ function Resume({ isScrolling, isScrollingDown, isScrollingUp }) {
               sunt pariatur ipsum velit sit. Reprehenderit culpa velit eiusmod
             </p>
           </FadeStop>
+          <Reveal when={scrollY > 4000}>
+            <hr></hr>
+          </Reveal>
           <FadeStop
             stop={stop}
             when={scrollY > 700}
@@ -124,7 +143,7 @@ function Resume({ isScrolling, isScrollingDown, isScrollingUp }) {
               }, 2000)
             }
           >
-            <div className="center">
+            <div className="center icon-group">
               {icons.map((i, index) => (
                 <div
                   key={index}

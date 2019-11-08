@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState, useEffect } from 'react';
 import Resume from './pages/Resume';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import SideBar from './components/Sidebar';
+import { SideBar, MyProvider, Button } from './components/Sidebar';
 import Header from './components/Header';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
@@ -22,16 +22,17 @@ function App() {
 
   return (
     <Router>
+      {/* <MyProvider> */}
       <div
         // className="resume"
         style={{
           marginTop: 50,
           border: '1px solid red',
+          display: 'flex',
         }}
         id="page-wrap"
       >
         <Header subtitle={title}></Header>
-
         <SideBar
           title={displayTitle}
           pathName={pathname}
@@ -53,6 +54,7 @@ function App() {
           </Route>
         </Switch>
       </div>
+      {/* </MyProvider> */}
     </Router>
   );
 }

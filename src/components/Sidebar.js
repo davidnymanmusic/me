@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import { NavLink } from 'react-router-dom';
 
-import { FiMenu } from 'react-icons/fi';
+import { FiMenu, FiArrowLeft } from 'react-icons/fi';
 import { peach } from '../constants';
+import { useToggle } from '../hooks/useToggle';
 
-const SideBar = props => {
+export const SideBar = props => {
   const links = [
     { name: 'Home', path: '/' },
     { name: 'Resume', path: '/resume/' },
@@ -14,20 +15,37 @@ const SideBar = props => {
   ];
 
   const [path, setPath] = useState(props.pathName);
+  const [open, setOpen] = useToggle(false);
+
   useEffect(() => {}, [path, props.pathName]);
   const handlePath = link => {
     setPath(link.path);
     props.title(link.name);
   };
 
+  const handleOpen = state => {
+    if (state.isOpen) handleHandleOpen();
+  };
+  const handleHandleOpen = () => {
+    setOpen();
+  };
+
   return (
-    <Menu customBurgerIcon={<FiMenu color={peach}></FiMenu>} {...props}>
+    <Menu
+      isOpen={open}
+      onStateChange={state => handleOpen(state)}
+      customBurgerIcon={<FiArrowLeft color={peach}></FiArrowLeft>}
+      {...props}
+    >
       <div className="nav">
         {links.map((link, i) => {
           return (
             <NavLink
               key={i}
-              onClick={() => handlePath(link)}
+              onClick={() => {
+                handlePath(link);
+                handleHandleOpen();
+              }}
               activeClassName="selected-link"
               to={link.path}
               exact={link.path === '/' ? true : false}

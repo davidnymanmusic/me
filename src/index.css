@@ -33,21 +33,33 @@ h3 {
 
 p {
   color: var(--light);
+  line-height: 24px;
 }
 
 .resume {
+  margin: 1em 10em;
+  color: var(--peach);
+  padding: 0em 3em;
+}
+.resume-mobile {
   margin: 1em 0em;
   color: var(--peach);
   padding: 0em 3em;
 }
+.resume h1 {
+  line-height: 60px;
+}
+.resume p {
+  padding-bottom: 20px;
+}
 
 .reading-progress-bar {
-  /* position: sticky; */
   height: 8px;
-  /* top: 0; */
+
   position: sticky;
   top: 0;
   background-color: var(--light);
+  left: -50%;
 }
 .reading-progress-bar-static {
   /* position: sticky; */
@@ -62,13 +74,20 @@ header {
   text-align: center;
   position: fixed;
   top: 0;
-  width: 100%;
   font-size: 2em;
   background-color: var(--green);
   padding: 0;
   margin-bottom: 2em;
   color: var(--peach);
   z-index: 2;
+  width: 75%;
+  text-align: center;
+  margin: 0 auto;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.header {
 }
 
 .content {
@@ -152,6 +171,12 @@ header {
   flex: auto;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.icon-group {
+  margin-top: 4em;
+  bottom: 0;
+  position: relative;
 }
 
 .statement {
@@ -286,5 +311,61 @@ Note: Beware of modifying this element as it can break the animations - you shou
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    /* background-color: lightblue; */
+  }
+  .resume-mobile h1 {
+    font-size: 1.3em;
+    margin: 20px 0px;
+  }
+  .resume-mobile p {
+    margin: 20px 0px;
+    font-size: 1em;
+  }
+  .statement {
+    /* margin: 100px auto; */
+    width: auto;
+    font-size: small;
+    margin: 80px 20px;
+  }
+  .statement h1 {
+    margin-bottom: 20px;
+  }
+  header {
+    font-size: 1em;
+    padding-top: 1.5em;
+    width: 100%;
+  }
+  .icon-group {
+    width: fit-content;
+    justify-content: space-between;
+  }
+  .reading-progress-bar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+  .content {
+    padding: 2em 1em;
+    /* background: #37968388 !important; */
+  }
+  .project {
+    background: var(--peach);
+    border: 8px solid var(--white);
+    color: var(--blue);
+    /* border: none; */
+    outline: none;
+    font-size: 2em;
+    font-family: 'DM Serif Display', serif;
+    width: 80%;
+    height: 180px;
+    margin: 18px auto;
+    display: block;
+    text-align: center;
+    transition: 0.2s;
   }
 }
