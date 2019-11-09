@@ -37,7 +37,10 @@ const Statement = () => {
             {' '}
             <span style={{ color: peach, fontWeight: 900 }}>></span> Hello, I'm
             a{' '}
-            <Link to="/projects" style={{ textDecoration: 'inherit' }}>
+            <Link
+              to="/projects"
+              style={{ textDecoration: 'inherit', color: light }}
+            >
               <span
                 style={{ textDecoration: 'underline', cursor: 'pointer' }}
                 className="link"
@@ -70,7 +73,10 @@ const Statement = () => {
             {' '}
             <span style={{ color: peach, fontWeight: 900 }}>></span> and ready
             to{' '}
-            <Link to="/" style={{ textDecoration: 'inherit', color: light }}>
+            <Link
+              to="/contact"
+              style={{ textDecoration: 'inherit', color: light }}
+            >
               <span
                 style={{ textDecoration: 'underline', cursor: 'pointer' }}
                 className="link"

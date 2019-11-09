@@ -60,6 +60,8 @@ p {
 }
 .resume p {
   padding-bottom: 20px;
+  font-size: 1.2em;
+  line-height: 1.5em;
 }
 
 .resume b {
