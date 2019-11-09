@@ -51,13 +51,13 @@ function App() {
             <Statement></Statement>
           </Route>
 
-          <Route path="/resume">
+          <Route exact path="/resume">
             <Resume progress={progress} />
           </Route>
-          <Route path="/projects">
+          <Route exact path="/projects">
             <Projects />
           </Route>
-          <Route path="/contact">
+          <Route exact path="/contact">
             <Contact />
           </Route>
         </Switch>
