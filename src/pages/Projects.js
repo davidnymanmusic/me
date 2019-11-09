@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
 
+import { Link } from 'react-router-dom';
+
 const Projects = props => {
   const [show, setshow] = useState(false);
 
@@ -28,37 +30,38 @@ const Projects = props => {
           >
             White Noise
           </button>
-          <button
-            className="project"
-            onClick={() => window.location.assign('/')}
-            onMouseEnter={() => setshow(true)}
-            onMouseLeave={() => setshow(false)}
-          >
-            {show ? (
-              <>
-                <FaArrowUp />
-                <FaArrowUp />
-              </>
-            ) : (
-              <>
-                <FaArrowDown />
-                <FaArrowDown />
-              </>
-            )}
-            <br></br>
-            This Site
-            {show ? (
-              <>
-                <FaArrowDown />
-                <FaArrowDown />
-              </>
-            ) : (
-              <>
-                <FaArrowUp />
-                <FaArrowUp />
-              </>
-            )}
-          </button>
+          <Link to="/">
+            <button
+              className="project"
+              onMouseEnter={() => setshow(true)}
+              onMouseLeave={() => setshow(false)}
+            >
+              {show ? (
+                <>
+                  <FaArrowUp />
+                  <FaArrowUp />
+                </>
+              ) : (
+                <>
+                  <FaArrowDown />
+                  <FaArrowDown />
+                </>
+              )}
+              <br></br>
+              This Site
+              {show ? (
+                <>
+                  <FaArrowDown />
+                  <FaArrowDown />
+                </>
+              ) : (
+                <>
+                  <FaArrowUp />
+                  <FaArrowUp />
+                </>
+              )}
+            </button>
+          </Link>
         </div>
       </div>
     </div>
