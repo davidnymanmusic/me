@@ -1,5 +1,6 @@
 import React, { useState, createRef } from 'react';
 import ReadingProgress from './ReadingProgress';
+import { Link } from 'react-router-dom';
 
 function Header(props) {
   const target = createRef();
@@ -27,12 +28,9 @@ function Header(props) {
   return (
     <div className="header" ref={target}>
       <header>
-        <h1
-          style={{ cursor: 'pointer' }}
-          onClick={() => window.location.assign('/')}
-        >
-          David Nyman
-        </h1>
+        <Link to="/" style={{ all: 'inherit' }}>
+          <h1 style={{ cursor: 'pointer' }}>David Nyman</h1>
+        </Link>
         <h3>{props.subtitle}</h3>
         {props.showProgress ? (
           <ReadingProgress sendProgress={showProgress} target={target}>

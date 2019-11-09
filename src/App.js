@@ -52,10 +52,9 @@ function App() {
         />
         <Switch>
           <Route path="/" exact component={Statement} />>
-          <Route
-            path="/resume"
-            component={() => <Resume progress={progress} />}
-          />
+          <Route path="/resume">
+            <Resume progress={progress} />
+          </Route>
           <Route path="/projects" component={Projects} />
           <Route path="/contact" component={Contact} />
         </Switch>
