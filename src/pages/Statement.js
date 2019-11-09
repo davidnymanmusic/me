@@ -30,7 +30,7 @@ const icons = [
 
 const Statement = () => {
   return (
-    <div>
+    <div style={{ paddingTop: 20 }}>
       <div className="statement">
         <Fade delay={90}>
           <h1>
