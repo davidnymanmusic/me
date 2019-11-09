@@ -44,26 +44,20 @@ function App() {
           showProgress={pathname === '/resume/'}
           getProgress={getProgress}
           subtitle={title}
-        ></Header>
+        />
         <SideBar
           title={displayTitle}
           pathName={pathname}
           pageWrapId={'page-wrap'}
-        ></SideBar>
+        />
         <Switch>
-          <Route path="/" exact>
-            <Statement></Statement>
-          </Route>
-
-          <Route path="/resume">
-            <Resume progress={progress} />
-          </Route>
-          <Route path="/projects">
-            <Projects />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
+          <Route path="/" exact component={Statement} />>
+          <Route
+            path="/resume"
+            component={() => <Resume progress={progress} />}
+          />
+          <Route path="/projects" component={Projects} />
+          <Route path="/contact" component={Contact} />
         </Switch>
       </div>
     </HashRouter>
