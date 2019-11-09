@@ -1,9 +1,11 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
-import { peach, isMobile } from '../constants';
+import { peach, isMobile, light } from '../constants';
 
 import { GoMarkGithub } from 'react-icons/go';
 import { FaTwitter, FaLinkedin } from 'react-icons/fa';
+
+import { Link } from 'react-router-dom';
 
 const size = isMobile()
   ? { height: 30, width: 30, padding: '0 24px' }
@@ -35,13 +37,14 @@ const Statement = () => {
             {' '}
             <span style={{ color: peach, fontWeight: 900 }}>></span> Hello, I'm
             a{' '}
-            <span
-              onClick={() => window.location.replace('/projects')}
-              style={{ textDecoration: 'underline', cursor: 'pointer' }}
-              className="link"
-            >
-              web developer
-            </span>
+            <Link to="/projects" style={{ textDecoration: 'inherit' }}>
+              <span
+                style={{ textDecoration: 'underline', cursor: 'pointer' }}
+                className="link"
+              >
+                web developer
+              </span>
+            </Link>
           </h1>
         </Fade>
         <Fade delay={300}>
@@ -52,7 +55,10 @@ const Statement = () => {
               onClick={() =>
                 window.open('https://www.davidnymanmusic.com', '_blank')
               }
-              style={{ textDecoration: 'underline', cursor: 'pointer' }}
+              style={{
+                textDecoration: 'underline',
+                cursor: 'pointer',
+              }}
               className="link"
             >
               music composer
@@ -64,13 +70,14 @@ const Statement = () => {
             {' '}
             <span style={{ color: peach, fontWeight: 900 }}>></span> and ready
             to{' '}
-            <span
-              onClick={() => window.location.replace('/resume')}
-              style={{ textDecoration: 'underline', cursor: 'pointer' }}
-              className="link"
-            >
-              collaborate.
-            </span>
+            <Link to="/" style={{ textDecoration: 'inherit', color: light }}>
+              <span
+                style={{ textDecoration: 'underline', cursor: 'pointer' }}
+                className="link"
+              >
+                collaborate.
+              </span>
+            </Link>
           </h1>
         </Fade>
       </div>

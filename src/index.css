@@ -133,6 +133,10 @@ header {
   transform: translate(-50%, 0);
 }
 
+a:visited {
+  color: inherit;
+}
+
 .content {
   margin: 2em 8em;
 }
