@@ -29,7 +29,7 @@ function Header(props) {
       <header>
         <h1
           style={{ cursor: 'pointer' }}
-          onClick={() => window.location.assign('/me')}
+          onClick={() => window.location.assign('/')}
         >
           David Nyman
         </h1>

@@ -1,6 +1,11 @@
 import React, { useLayoutEffect, useState, useEffect } from 'react';
 import Resume from './pages/Resume';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as HashRouter,
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom';
 import { SideBar, MyProvider, Button } from './components/Sidebar';
 import Header from './components/Header';
 import Projects from './pages/Projects';
@@ -25,8 +30,7 @@ function App() {
   };
 
   return (
-    <Router>
-      {/* <MyProvider> */}
+    <HashRouter basename="/">
       <div
         // className="resume"
         style={{
@@ -47,23 +51,22 @@ function App() {
           pageWrapId={'page-wrap'}
         ></SideBar>
         <Switch>
-          <Route path="/me" exact>
+          <Route path="/" exact>
             <Statement></Statement>
           </Route>
 
-          <Route exact path="/resume">
+          <Route path="/resume">
             <Resume progress={progress} />
           </Route>
-          <Route exact path="/projects">
+          <Route path="/projects">
             <Projects />
           </Route>
-          <Route exact path="/contact">
+          <Route path="/contact">
             <Contact />
           </Route>
         </Switch>
       </div>
-      {/* </MyProvider> */}
-    </Router>
+    </HashRouter>
   );
 }
 
