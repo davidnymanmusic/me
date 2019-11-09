@@ -51,7 +51,8 @@ function App() {
           pageWrapId={'page-wrap'}
         />
         <Switch>
-          <Route path="/" exact component={Statement} />>
+          <Route path="/" exact component={Statement} />
+          <Route path="/me/" component={Statement} />
           <Route path="/resume">
             <Resume progress={progress} />
           </Route>

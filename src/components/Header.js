@@ -1,6 +1,7 @@
 import React, { useState, createRef } from 'react';
 import ReadingProgress from './ReadingProgress';
 import { Link } from 'react-router-dom';
+import { peach } from '../constants';
 
 function Header(props) {
   const target = createRef();
@@ -28,7 +29,7 @@ function Header(props) {
   return (
     <div className="header" ref={target}>
       <header>
-        <Link to="/" style={{ all: 'inherit' }}>
+        <Link to="/" style={{ textDecoration: 'inherit', color: peach }}>
           <h1 style={{ cursor: 'pointer' }}>David Nyman</h1>
         </Link>
         <h3>{props.subtitle}</h3>
