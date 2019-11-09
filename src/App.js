@@ -47,7 +47,7 @@ function App() {
           pageWrapId={'page-wrap'}
         ></SideBar>
         <Switch>
-          <Route path="/me" exact>
+          <Route path="/" exact>
             <Statement></Statement>
           </Route>
 

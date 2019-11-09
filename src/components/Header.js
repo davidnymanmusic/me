@@ -4,7 +4,6 @@ import ReadingProgress from './ReadingProgress';
 function Header(props) {
   const target = createRef();
   const [progress, setProgress] = useState(0);
-  const [progressText, setProgressText] = useState('hi');
   const showProgress = progress => {
     setProgress(Math.ceil(progress));
     props.getProgress(Math.ceil(progress));
@@ -30,7 +29,7 @@ function Header(props) {
       <header>
         <h1
           style={{ cursor: 'pointer' }}
-          onClick={() => window.location.assign('/me/')}
+          onClick={() => window.location.assign('/')}
         >
           David Nyman
         </h1>
