@@ -1,11 +1,6 @@
 import React, { useLayoutEffect, useState, useEffect } from 'react';
 import Resume from './pages/Resume';
-import {
-  BrowserRouter as HashRouter,
-  Switch,
-  Route,
-  Link,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { SideBar, MyProvider, Button } from './components/Sidebar';
 import Header from './components/Header';
 import Projects from './pages/Projects';
@@ -28,11 +23,10 @@ function App() {
   const getProgress = progress => {
     setProgress(progress);
   };
-
+  console.log(process.env.PUBLIC_URL);
   return (
-    <HashRouter basename="/">
+    <Router basename={'/'}>
       <div
-        // className="resume"
         style={{
           marginTop: 50,
           display: 'flex',
@@ -60,7 +54,7 @@ function App() {
           <Route path="/contact" component={Contact} />
         </Switch>
       </div>
-    </HashRouter>
+    </Router>
   );
 }
 
