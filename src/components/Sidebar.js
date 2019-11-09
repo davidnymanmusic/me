@@ -8,7 +8,7 @@ import { useToggle } from '../hooks/useToggle';
 
 export const SideBar = props => {
   const links = [
-    { name: 'Home', path: '/' },
+    { name: 'Home', path: '/me/' },
     { name: 'Resume', path: '/resume/' },
     { name: 'Projects', path: '/projects/' },
     { name: 'Contact', path: '/contact/' },
@@ -48,7 +48,7 @@ export const SideBar = props => {
               }}
               activeClassName="selected-link"
               to={link.path}
-              exact={link.path === '/' ? true : false}
+              exact={link.path === '/me/' ? true : false}
             >
               {link.name}{' '}
               {path === link.path ? (
