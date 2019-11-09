@@ -14,6 +14,10 @@
   --peach: #f7d79c;
 }
 
+html {
+  scroll-padding-top: 70px; /* height of sticky header */
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--green);
@@ -37,9 +41,9 @@ p {
 }
 
 .resume {
-  margin: 1em 10em;
+  margin: 6em 14em;
   color: var(--peach);
-  padding: 0em 3em;
+  padding: 6em 3em;
 }
 .resume-mobile {
   margin: 1em 0em;
@@ -48,26 +52,68 @@ p {
 }
 .resume h1 {
   line-height: 60px;
+  margin-top: 1em;
+}
+.resume h2 {
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
 }
 .resume p {
   padding-bottom: 20px;
 }
 
-.reading-progress-bar {
-  height: 8px;
+.resume b {
+  color: var(--white);
+  text-decoration: underline;
+}
+.resume h3 {
+  color: var(--light);
+  font-family: 'Poppins', sans-serif;
+}
 
+.tag {
+  background: var(--peach);
+  color: var(--green);
+  padding: 0 8px;
+  border-radius: 6px;
+  margin-right: 8px;
+  display: inline-flex;
+  margin-bottom: 24px;
+}
+.tag-client {
+  background: var(--light);
+  color: var(--blue);
+  padding: 2px 12px;
+  border-radius: 8px;
+  margin-right: 20px;
+  display: inline-flex;
+  margin-bottom: 24px;
+  font-size: 1.2em;
+}
+
+.reading-progress-bar {
+  height: 24px;
   position: sticky;
   top: 0;
   background-color: var(--light);
   left: -50%;
+  z-index: 4;
+  border-radius: 4px;
 }
-.reading-progress-bar-static {
-  /* position: sticky; */
-  height: 8px;
-  /* top: 0; */
-  position: sticky;
-  top: 0;
-  background-color: var(--light);
+.progress-right {
+  color: var(--green);
+  float: right;
+  transition: 1s;
+  white-space: nowrap;
+  font-size: 18px;
+  padding-right: 10px;
+}
+.progress-left {
+  color: var(--dark);
+  float: left;
+  transition: 1s;
+  white-space: nowrap;
+  font-size: 14px;
 }
 
 header {
@@ -87,16 +133,35 @@ header {
   transform: translate(-50%, 0);
 }
 
-.header {
-}
-
 .content {
-  padding: 2em 8em;
-  /* background: #37968388 !important; */
+  margin: 2em 8em;
+}
+.content-icon {
+  margin: 4em 8em;
+  bottom: 0;
+  position: fixed;
 }
 
 .content::selection {
   background: var(--white);
+}
+
+.center {
+  margin: 0 auto;
+  width: auto;
+  text-align: center;
+  display: flex;
+  flex: auto;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.link:hover {
+  color: var(--peach);
+  transition: 0.3s;
+}
+.link {
+  transition: 0.3s;
 }
 
 .statement {
@@ -157,20 +222,10 @@ header {
   font-family: 'DM Serif Display', serif;
   width: 200px;
   height: 200px;
-  margin: 2em auto;
+  margin: 2em 1em;
   display: block;
   text-align: center;
   transition: 0.2s;
-}
-
-.center {
-  margin: 0 auto;
-  width: 60%;
-  text-align: center;
-  display: flex;
-  flex: auto;
-  justify-content: space-around;
-  flex-wrap: wrap;
 }
 
 .icon-group {
@@ -181,12 +236,15 @@ header {
 
 .statement {
   padding-top: 4em;
-  width: 45%;
+  width: 100%;
   font-size: 1.5em;
   font-family: 'Frank Ruhl Libre', serif;
   font-weight: 900;
   margin: auto;
   color: var(--light);
+}
+.statement h1 {
+  padding-bottom: 0.2em;
 }
 
 .icon {
@@ -198,7 +256,7 @@ header {
 }
 
 #page-wrap {
-  text-align: left;
+  position: sticky;
 }
 
 .bm-burger-button {
@@ -313,18 +371,40 @@ Note: Beware of modifying this element as it can break the animations - you shou
     transform: rotate(360deg);
   }
 }
+@media only screen and (max-width: 1000px) {
+  .resume {
+    margin: 4em 2em;
+    color: var(--peach);
+    padding: 0em 4em;
+  }
+  header {
+    width: 100%;
+  }
+}
 
 @media only screen and (max-width: 600px) {
-  body {
-    /* background-color: lightblue; */
+  .contact {
+    font-size: 30px !important;
   }
   .resume-mobile h1 {
-    font-size: 1.3em;
+    font-size: 1.8em;
     margin: 20px 0px;
+  }
+  .resume-mobile h2 {
+    font-size: 1.2em;
+    margin: 20px 0px;
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
   }
   .resume-mobile p {
     margin: 20px 0px;
     font-size: 1em;
+  }
+
+  .resume {
+    margin: 0em 2em;
+    color: var(--peach);
+    padding: 0em 0em;
   }
   .statement {
     /* margin: 100px auto; */

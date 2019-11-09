@@ -14,7 +14,7 @@ import ReadingProgress from '../components/ReadingProgress';
 const FadeStop = props =>
   props.stop ? <Fade {...props}>{props.children}</Fade> : <>{props.children}</>;
 
-function Resume({ isScrolling, isScrollingDown, isScrollingUp }) {
+function Resume(props) {
   const size = isMobile()
     ? { height: 30, width: 30, padding: '0 24px' }
     : { height: 70, width: 70, padding: '0 20px' };
@@ -43,71 +43,123 @@ function Resume({ isScrolling, isScrollingDown, isScrollingUp }) {
   const [stop, setStop] = useState(true);
   const { scrollY } = useScroll();
   const { height, width } = useWindowDimensions();
-  const duration = isScrollingUp ? 2121 : 3333;
+  const duration = props.isScrollingUp ? 2121 : 3333;
 
   useEffect(() => {
-    if (isMobile()) {
+    if (isMobile() || width <= 800) {
       setStop(false);
     }
   }, []);
-
+  const { progress } = props;
   return (
     <div
-      className={isMobile() ? 'resume-mobile' : 'resume'}
-      style={{ height: '2000px' }}
+      className={isMobile() || width <= 800 ? 'resume-mobile' : 'resume'}
       ref={target}
     >
-      <div style={{ position: 'sticky', top: 100 }}>
-        <>Scrolling position - {scrollY}</>
-        {/* {height !== scrollY ? (
-          <ReadingProgress target={target} />
-        ) : (
-          <div className="reading-progress-bar-static"></div>
-        )} */}
+      {stop || isMobile() || width <= 800 ? (
+        <Fade forever={true} duration={2000}>
+          <h2 style={{ marginBottom: '5em', textAlign: 'center' }}>
+            Start Scrolling
+          </h2>
+        </Fade>
+      ) : null}
+      <div>
         <div style={{ color: peach }}>
-          <FadeStop
-            stop={stop}
-            when={scrollY > 100 || height < scrollY}
-            duration={duration}
-          >
-            <h1>Deserunt in officia id dolor labore quis ex culpa quis do .</h1>
+          <FadeStop stop={stop} when={progress > 1} duration={800}>
+            <h1>Training and Experience</h1>
+            <h2>Full Stack, Agile, and Client Driven Problem Solving</h2>
 
             <p>
-              Eu fugiat id dolor pariatur aliquip amet ut non eu in ea quis
-              elit. Irure velit eu esse laborum ipsum irure elit ea consectetur
-              velit. Officia minim sit exercitation fugiat velit reprehenderit.
-              Commodo sint aliquip esse minim culpa dolore ea. Voluptate
-              deserunt incididunt deserunt est do veniam commodo tempor duis.
-              Anim proident eiusmod et excepteur cillum commodo magna in
-              excepteur deserunt excepteur. Incididunt id non nostrud
-              exercitation irure est consectetur culpa. Ea ullamco sint non sint
-              tempor proident commodo culpa aliquip fugiat. Proident elit in
-              cupidatat ullamco aliquip magna excepteur aute quis. Sunt
-              excepteur consequat enim minim commodo labore cupidatat excepteur
-              do sint dolore cillum.
+              With training in IBM’s Garage Method and my prior experience
+              collaborating with clients in a creative field I am ready to help
+              solve problems with code and empathy in cloud native environments.
+            </p>
+            <p>
+              My background in music provided me a foundation of working with
+              abstract languages and my work with clients prepared me for the
+              creative feedback cycle.
             </p>
           </FadeStop>
         </div>
-        <Reveal when={scrollY > 150}>
+        <Reveal when={progress > 30}>
           <hr></hr>
         </Reveal>
-        <div style={{ color: peach }}>
-          <FadeStop stop={stop} when={scrollY > 200} duration={duration}>
-            <h1>
-              Laborum mollit duis dolor aliquip ex proident ea id voluptate
-              labore.
-            </h1>
+        <div
+          style={{
+            color: peach,
+            // background: scrollY > 190 ? 'black' : null,
+          }}
+        >
+          <FadeStop
+            style={{
+              color: peach,
+              background: scrollY > 190 ? 'black' : null,
+            }}
+            stop={stop}
+            when={scrollY > 200}
+            duration={duration}
+          >
+            <h1>Work work work work, work</h1>
+            <h2>IBM Garage for Cloud, New York City 2018–2019</h2>
+            <i>Projects</i>
             <p>
-              Anim ex minim duis ea duis duis exercitation pariatur. Incididunt
-              elit est est ad esse ex id deserunt cillum minim pariatur
-              cupidatat velit ea. Eu officia duis in nostrud commodo. Duis
-              aliqua enim anim sit fugiat. Dolor do aute aliqua est ullamco
-              ullamco elit commodo mollit enim aliqua. Est adipisicing enim
-              irure cupidatat sunt consectetur do laborum dolore tempor. Elit
-              velit laboris aliquip laboris tempor fugiat duis incididunt do
-              tempor. Fugiat enim commodo laborum sint fugiat est. Consectetur
-              proident elit mollit minim occaecat Lorem voluptate pariatur
+              <b>Garage Talent Tool </b> <br></br>The GTT is an internal
+              application to facilitate talent deployment onto consulting
+              engagements, including a skills tracker for talent (developers,
+              architects, and designers) to be used world-wide by all developers
+              in the 14+ locations around the world.
             </p>
+            {[
+              'Node.js',
+              'React',
+              'PostgreSQL',
+              'Kubernetes',
+              'CI/CD',
+              'Agile',
+              'Kanban',
+            ].map(tag => (
+              <div className="tag">{tag}</div>
+            ))}
+            <p>
+              <b>SubK Request Form</b> <br></br>
+              Internal application using IBM SSAe to help process subK requests
+              for external engagements.
+            </p>
+            <br></br>
+            <hr></hr>
+            <h2>Skinno, New York City - 2018</h2>
+            <i>iOS Developer Intern</i> <br></br>
+            <p>
+              Developing UI/UX components and OCR scanner with Google Vision for
+              skincare data company. Implemented a web quiz for determining a
+              user’s skin type.
+            </p>
+            {['iOS', 'React Native', 'React', 'Node.js'].map(tag => (
+              <div className="tag">{tag}</div>
+            ))}
+            <br></br>
+            <hr></hr>
+            <h2>Composer at David Nyman Music, New York City 2010-2019</h2>
+            <i>Freelancer</i> <br></br>
+            <p>
+              Provided original music for a variety of clients ranging from
+              independent filmmakers to billion dollar companies. All music work
+              was self recorded and produced in Logic Pro X
+            </p>
+            <h2>Clients</h2>
+            {[
+              'Netflix',
+              'Microsoft',
+              'Norton Antivirus',
+              'Bacardi',
+              'Airbnb',
+              'Philips',
+              'Delta Airlines',
+              'Chase Bank',
+              'Bain Capital',
+            ].map(tag => (
+              <div className="tag-client">{tag}</div>
+            ))}
           </FadeStop>
         </div>
         <Reveal when={scrollY > 250}>
@@ -115,21 +167,26 @@ function Resume({ isScrolling, isScrollingDown, isScrollingUp }) {
         </Reveal>
         <div style={{ color: peach }}>
           <FadeStop stop={stop} when={scrollY > 350} duration={duration}>
-            <h1>Dolore officia mollit aliqua deserunt deserunt commodo.</h1>
+            <h1>Education</h1>
+            <h2>Hampshire College, B.A. 2006-2010</h2>
+            <i>Music Composition for Film</i>
             <p>
-              In ullamco magna occaecat ex labore ullamco et fugiat adipisicing.
-              Eiusmod qui eu ex ipsum sit commodo fugiat. Deserunt dolore enim
-              quis fugiat ea qui commodo qui do est laboris cupidatat. Non id
-              quis commodo cupidatat. Aliqua in sit sit consequat quis non
-              tempor minim elit excepteur tempor cupidatat. Ullamco qui aliquip
-              aliqua enim nisi enim ullamco ullamco qui ea laborum eiusmod. Ea
-              consectetur ea cupidatat amet. Sunt irure sunt magna veniam culpa
-              cupidatat sunt non. Adipisicing aliqua proident nulla aliquip
-              ipsum adipisicing ut laborum tempor Lorem. Reprehenderit eu sit
-              magna nisi do occaecat elit. Qui adipisicing do pariatur ullamco
-              sunt pariatur ipsum velit sit. Reprehenderit culpa velit eiusmod
+              Studied the transformative power of music in relation to the
+              pyschological state watching films
             </p>
           </FadeStop>
+          <hr></hr>
+          <div style={{ color: peach }}>
+            <FadeStop stop={stop} when={scrollY > 350} duration={duration}>
+              <h1>Early Life</h1>
+              <h3>Wayland Academy, Beaver Dam, WI 2004-2006</h3>
+              <i>Boarding high school</i>
+              <h3>Kingsford Schools, Kingsford MI 1994-2004</h3>
+              <i>Hometown</i>
+              <h3>Sun Valley, ID</h3>
+              <i>Birthplace</i>
+            </FadeStop>
+          </div>
           <Reveal when={scrollY > 4000}>
             <hr></hr>
           </Reveal>

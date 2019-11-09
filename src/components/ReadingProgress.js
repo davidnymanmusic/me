@@ -1,13 +1,13 @@
 import React from 'react';
 
-const ReadingProgress = ({ target }) => {
+const ReadingProgress = props => {
   const [readingProgress, setReadingProgress] = React.useState(0);
   const scrollListener = () => {
-    if (!target.current) {
+    if (!props.target.current) {
       return;
     }
 
-    const element = target.current;
+    const element = props.target.current;
     const totalHeight =
       element.clientHeight - element.offsetTop - window.innerHeight;
     const windowScrollTop =
@@ -28,6 +28,7 @@ const ReadingProgress = ({ target }) => {
   };
 
   React.useEffect(() => {
+    props.sendProgress(readingProgress);
     window.addEventListener('scroll', scrollListener);
     return () => window.removeEventListener('scroll', scrollListener);
   });
@@ -36,7 +37,14 @@ const ReadingProgress = ({ target }) => {
     <div
       className={`reading-progress-bar`}
       style={{ width: `${readingProgress}%` }}
-    />
+    >
+      <div
+        style={{ paddingLeft: readingProgress }}
+        className={!readingProgress === 0 ? 'progress-left' : 'progress-right'}
+      >
+        {props.children}
+      </div>
+    </div>
   );
 };
 export default ReadingProgress;

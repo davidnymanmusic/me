@@ -11,6 +11,7 @@ function App() {
   const pathname = window.location.pathname;
 
   const [title, setTitle] = useState('');
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -18,6 +19,9 @@ function App() {
 
   const displayTitle = title => {
     setTitle(title);
+  };
+  const getProgress = progress => {
+    setProgress(progress);
   };
 
   return (
@@ -27,12 +31,16 @@ function App() {
         // className="resume"
         style={{
           marginTop: 50,
-          border: '1px solid red',
           display: 'flex',
+          justifyContent: 'center',
         }}
         id="page-wrap"
       >
-        <Header subtitle={title}></Header>
+        <Header
+          showProgress={pathname === '/resume/'}
+          getProgress={getProgress}
+          subtitle={title}
+        ></Header>
         <SideBar
           title={displayTitle}
           pathName={pathname}
@@ -44,7 +52,7 @@ function App() {
           </Route>
 
           <Route path="/resume">
-            <Resume />
+            <Resume progress={progress} />
           </Route>
           <Route path="/projects">
             <Projects />
