@@ -10,6 +10,7 @@ function Contact() {
         style={{ color: light, fontSize: 50 }}
         href="mailto:davenyman@gmail.com?subject=Hello world&body=Hey David,%0D(Got this email started for you)"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <FiMail style={{ color: light, fontSize: 150 }}></FiMail>
         <p>Email me</p>

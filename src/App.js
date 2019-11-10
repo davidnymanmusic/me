@@ -1,7 +1,7 @@
-import React, { useLayoutEffect, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Resume from './pages/Resume';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { SideBar, MyProvider, Button } from './components/Sidebar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { SideBar } from './components/Sidebar';
 import Header from './components/Header';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
@@ -23,9 +23,9 @@ function App() {
   const getProgress = progress => {
     setProgress(progress);
   };
-  console.log(process.env.PUBLIC_URL);
+
   return (
-    <Router basename={'/'}>
+    <Router basename={'/me'}>
       <div
         style={{
           marginTop: 50,
@@ -35,7 +35,7 @@ function App() {
         id="page-wrap"
       >
         <Header
-          showProgress={pathname === '/resume/'}
+          showProgress={pathname === '/me/resume/'}
           getProgress={getProgress}
           subtitle={title}
         />

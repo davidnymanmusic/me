@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import { NavLink } from 'react-router-dom';
 
-import { FiMenu, FiArrowLeft } from 'react-icons/fi';
+import { FiArrowLeft } from 'react-icons/fi';
 import { peach } from '../constants';
 import { useToggle } from '../hooks/useToggle';
 

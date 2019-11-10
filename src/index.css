@@ -143,9 +143,9 @@ a:visited {
   margin: 2em 8em;
 }
 .content-icon {
-  margin: 4em 8em;
+  margin: 0 auto;
   bottom: 0;
-  position: fixed;
+  /* position: fixed; */
 }
 
 .content::selection {
@@ -436,7 +436,9 @@ Note: Beware of modifying this element as it can break the animations - you shou
     top: 0;
   }
   .content {
-    padding: 2em 1em;
+    padding: 2em 0em;
+    margin: 1em 2em;
+    width: fit-content;
     /* background: #37968388 !important; */
   }
   .project {
@@ -446,12 +448,13 @@ Note: Beware of modifying this element as it can break the animations - you shou
     /* border: none; */
     outline: none;
     font-size: 2em;
-    font-family: 'DM Serif Display', serif;
-    width: 80%;
     height: 180px;
     margin: 18px auto;
     display: block;
     text-align: center;
     transition: 0.2s;
+  }
+  #site {
+    font-size: 2.5em;
   }
 }

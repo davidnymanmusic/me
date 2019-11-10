@@ -2,22 +2,24 @@ import React, { useState, useEffect } from 'react';
 import IsScrolling from 'react-is-scrolling';
 import Fade from 'react-reveal/Fade';
 import Reveal from 'react-reveal/Reveal';
-import Zoom from 'react-reveal/Zoom';
 
 import { useScroll } from '../hooks/useScroll';
 import { peach, isMobile } from '../constants';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import { GoMarkGithub } from 'react-icons/go';
 import { FaTwitter, FaLinkedin } from 'react-icons/fa';
-import ReadingProgress from '../components/ReadingProgress';
 
 const FadeStop = props =>
   props.stop ? <Fade {...props}>{props.children}</Fade> : <>{props.children}</>;
 
 function Resume(props) {
-  const size = isMobile()
-    ? { height: 30, width: 30, padding: '0 24px' }
-    : { height: 70, width: 70, padding: '0 20px' };
+  const [stop, setStop] = useState(true);
+  const { scrollY } = useScroll();
+  const { width } = useWindowDimensions();
+  const size =
+    isMobile() || width < 800
+      ? { height: 30, width: 30, padding: '0 2px' }
+      : { height: 70, width: 70, padding: '0 20px' };
   const icons = [
     {
       icon: <GoMarkGithub className="icon" style={size} />,
@@ -40,23 +42,21 @@ function Resume(props) {
   const showAll = () => {
     setStop(false);
   };
-  const [stop, setStop] = useState(true);
-  const { scrollY } = useScroll();
-  const { height, width } = useWindowDimensions();
+
   const duration = props.isScrollingUp ? 2121 : 3333;
 
   useEffect(() => {
-    if (isMobile() || width <= 800) {
+    if (isMobile() || width <= 1000) {
       setStop(false);
     }
   }, []);
-  const { progress } = props;
+
   return (
     <div
-      className={isMobile() || width <= 800 ? 'resume-mobile' : 'resume'}
+      className={isMobile() || width <= 1000 ? 'resume-mobile' : 'resume'}
       ref={target}
     >
-      {stop || isMobile() || width <= 800 ? (
+      {stop ? (
         <Fade forever={true} duration={2000}>
           <h2 style={{ marginBottom: '5em', textAlign: 'center' }}>
             Start Scrolling
@@ -65,7 +65,7 @@ function Resume(props) {
       ) : null}
       <div>
         <div style={{ color: peach }}>
-          <FadeStop stop={stop} when={progress > 1} duration={800}>
+          <FadeStop stop={stop} when={scrollY > 1} duration={800}>
             <h1>Training and Experience</h1>
             <h2>Full Stack, Agile, and Client Driven Problem Solving</h2>
 
@@ -81,19 +81,17 @@ function Resume(props) {
             </p>
           </FadeStop>
         </div>
-        <Reveal when={progress > 30}>
+        <Reveal when={scrollY > 30}>
           <hr></hr>
         </Reveal>
         <div
           style={{
             color: peach,
-            // background: scrollY > 190 ? 'black' : null,
           }}
         >
           <FadeStop
             style={{
               color: peach,
-              background: scrollY > 190 ? 'black' : null,
             }}
             stop={stop}
             when={scrollY > 200}
@@ -118,7 +116,9 @@ function Resume(props) {
               'Agile',
               'Kanban',
             ].map(tag => (
-              <div className="tag">{tag}</div>
+              <div className="tag" key="tag">
+                {tag}
+              </div>
             ))}
             <p>
               <b>SubK Request Form</b> <br></br>
@@ -158,7 +158,9 @@ function Resume(props) {
               'Chase Bank',
               'Bain Capital',
             ].map(tag => (
-              <div className="tag-client">{tag}</div>
+              <div className="tag-client" key={tag}>
+                {tag}
+              </div>
             ))}
           </FadeStop>
         </div>

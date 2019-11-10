@@ -9,6 +9,7 @@ function Header(props) {
   const showProgress = progress => {
     setProgress(Math.ceil(progress));
     props.getProgress(Math.ceil(progress));
+    console.log(progress, 'he');
   };
   const textSwitch = progress => {
     switch (true) {
