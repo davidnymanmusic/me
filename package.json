@@ -3,8 +3,10 @@
   "homepage": "https://davidnymanmusic.github.io/me",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://192.168.173.155:3000",
   "dependencies": {
     "animate.css": "^3.7.2",
+    "localtunnel": "^2.0.0",
     "react": "^16.11.0",
     "react-animate-on-scroll": "^2.1.5",
     "react-burger-menu": "^2.6.11",

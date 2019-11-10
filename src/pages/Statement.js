@@ -87,20 +87,18 @@ const Statement = () => {
           </h1>
         </Fade>
       </div>
-      <div className="content-icon">
-        <div className="center icon-group">
-          {icons.map((i, index) => (
-            <div
-              key={index}
-              className="icon"
-              onClick={() => window.open(i.link, '_blank')}
-            >
-              {i.icon}
-              {<p>{i.text}</p>}
-            </div>
-          ))}
-        </div>
-        ;
+      <div></div>
+      <div className="center icon-group">
+        {icons.map((i, index) => (
+          <div
+            key={index}
+            className="icon"
+            onClick={() => window.open(i.link, '_blank')}
+          >
+            {i.icon}
+            {<p>{i.text}</p>}
+          </div>
+        ))}
       </div>
     </div>
   );

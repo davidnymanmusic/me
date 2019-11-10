@@ -33,6 +33,7 @@ h1,
 h2,
 h3 {
   font-family: 'DM Serif Display', serif;
+  font-weight: 900;
 }
 
 p {
@@ -48,7 +49,7 @@ p {
 .resume-mobile {
   margin: 6em 0em;
   color: var(--peach);
-  padding: 3em 3em;
+  padding: 1em 1.5em;
 }
 .resume h1 {
   line-height: 60px;
@@ -256,9 +257,20 @@ a:visited {
 .icon {
   color: var(--light);
   cursor: pointer;
+  padding: 0 10px;
 }
 .icon:hover {
   color: var(--peach);
+}
+
+.contact {
+  padding-top: 2em;
+  text-align: center;
+  width: 100%;
+}
+
+.contact p {
+  padding-bottom: 1em;
 }
 
 #page-wrap {
@@ -360,7 +372,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
     color: var(--white);
   }
 }
-
 @-moz-keyframes spin {
   100% {
     -moz-transform: rotate(360deg);
@@ -379,12 +390,30 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 @media only screen and (max-width: 1000px) {
   .resume {
-    margin: 4em 2em;
+    margin: 4em 1em;
     color: var(--peach);
     padding: 0em 4em;
   }
+  .resume-mobile h2 {
+    color: var(--white) !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 4vw;
+  }
+  .resume-mobile h1 {
+    font-size: 6vw;
+  }
+  .resume-mobile h3 {
+    color: var(--light);
+    font-family: 'Poppins', sans-serif;
+  }
   header {
     width: 100%;
+    font-size: 1.3em;
+    padding-top: 0.8em;
+    padding-left: 24px;
+  }
+  .contact {
+    width: 70%;
   }
 }
 
@@ -392,29 +421,46 @@ Note: Beware of modifying this element as it can break the animations - you shou
   .contact {
     font-size: 30px !important;
   }
+  .contact {
+    width: 100%;
+  }
 
   .resume {
-    margin: 0em 2em;
+    margin: 0em 1em;
     color: var(--peach);
     padding: 0em 0em;
+  }
+  .resume-mobile h1 {
+    font-size: 6vw;
+  }
+  .resume-mobile h3 {
+    color: var(--light);
+    font-family: 'Poppins', sans-serif;
+  }
+  .resume-mobile h2 {
+    color: var(--white) !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 4vw;
   }
   .statement {
     /* margin: 100px auto; */
     width: auto;
     font-size: small;
-    margin: 80px 20px;
+    margin: 80px 8px;
   }
   .statement h1 {
     margin-bottom: 20px;
   }
   header {
-    font-size: 1em;
-    padding-top: 1.5em;
+    font-size: 1.3em;
+    padding-top: 0.8em;
+    padding-left: 24px;
     width: 100%;
   }
   .icon-group {
     width: fit-content;
     justify-content: space-between;
+    width: 100%;
   }
   .reading-progress-bar {
     position: -webkit-sticky;
@@ -425,7 +471,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
     padding: 2em 0em;
     margin: 1em 2em;
     width: fit-content;
-    /* background: #37968388 !important; */
   }
   .project {
     background: var(--peach);

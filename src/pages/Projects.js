@@ -30,37 +30,37 @@ const Projects = props => {
           >
             White Noise
           </button>
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: 'inherit' }}>
             <button
               id="site"
               className="project"
               onMouseEnter={() => setshow(true)}
               onMouseLeave={() => setshow(false)}
             >
-              {show ? (
+              {/* {show ? (
                 <>
-                  <FaArrowUp />
-                  <FaArrowUp />
+                  <FaArrowUp style={{ fontSize: 35, fontWeight: 100 }} />
+                  <FaArrowUp style={{ fontSize: 35, fontWeight: 100 }} />
                 </>
               ) : (
                 <>
-                  <FaArrowDown />
-                  <FaArrowDown />
+                  <FaArrowDown style={{ fontSize: 35, fontWeight: 100 }} />
+                  <FaArrowDown style={{ fontSize: 35, fontWeight: 100 }} />
                 </>
               )}
-              <br></br>
+              <br></br> */}
               This Site
-              {show ? (
+              {/* {show ? (
                 <>
-                  <FaArrowDown />
-                  <FaArrowDown />
+                  <FaArrowDown style={{ fontSize: 35, fontWeight: 100 }} />
+                  <FaArrowDown style={{ fontSize: 35, fontWeight: 100 }} />
                 </>
               ) : (
                 <>
-                  <FaArrowUp />
-                  <FaArrowUp />
+                  <FaArrowUp style={{ fontSize: 35, fontWeight: 100 }} />
+                  <FaArrowUp style={{ fontSize: 35, fontWeight: 100 }} />
                 </>
-              )}
+              )} */}
             </button>
           </Link>
         </div>

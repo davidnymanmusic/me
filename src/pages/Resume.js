@@ -150,12 +150,15 @@ function Resume(props) {
             {[
               'Netflix',
               'Microsoft',
+              'NPR',
+              'Buzzfeed',
               'Norton Antivirus',
               'Bacardi',
               'Airbnb',
               'Philips',
               'Delta Airlines',
               'Chase Bank',
+              'Selfridges',
               'Bain Capital',
             ].map(tag => (
               <div className="tag-client" key={tag}>

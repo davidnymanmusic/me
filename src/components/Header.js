@@ -33,7 +33,7 @@ function Header(props) {
         <Link to="/" style={{ textDecoration: 'inherit', color: peach }}>
           <h1 style={{ cursor: 'pointer' }}>David Nyman</h1>
         </Link>
-        <h3>{props.subtitle}</h3>
+        <h3 style={{ paddingRight: '1px' }}>{props.subtitle}</h3>
         {props.showProgress ? (
           <ReadingProgress sendProgress={showProgress} target={target}>
             {textSwitch(progress)}
