@@ -31,12 +31,14 @@ function Header(props) {
     <div className="header" ref={target}>
       <header>
         <Link to="/" style={{ textDecoration: 'inherit', color: peach }}>
-          <h1 style={{ cursor: 'pointer' }}>David Nyman</h1>
+          <h1 style={{ cursor: 'pointer', display: 'inline-block' }}>
+            David Nyman
+          </h1>
         </Link>
         <h3 style={{ paddingRight: '1px' }}>{props.subtitle}</h3>
         {props.showProgress ? (
           <ReadingProgress sendProgress={showProgress} target={target}>
-            {textSwitch(progress)}
+            {progress < 8 ? null : textSwitch(progress)}
           </ReadingProgress>
         ) : null}
       </header>

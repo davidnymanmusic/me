@@ -4,6 +4,8 @@ import { FiMail } from 'react-icons/fi';
 import { GoMarkGithub } from 'react-icons/go';
 import { FaTwitter, FaLinkedin } from 'react-icons/fa';
 import useWindowDimensions from '../hooks/useWindowDimensions';
+import david from '../assets/david.jpg';
+import { blue } from 'ansi-colors';
 
 function Contact() {
   const { width } = useWindowDimensions();
@@ -38,10 +40,11 @@ function Contact() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FiMail style={{ color: light, fontSize: 150 }}></FiMail>
+          <FiMail className="icon" style={{ fontSize: 80 }}></FiMail>
           <p>Email me</p>
         </a>
       </div>
+      <img className="me" src={david}></img>
       <div className="center icon-group">
         {icons.map((i, index) => (
           <div

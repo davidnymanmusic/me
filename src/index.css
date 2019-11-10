@@ -8,6 +8,7 @@
 :root {
   --blue: #1a4661;
   --green: #0c3a39;
+  --green-o: #0c3a39e7;
   --white: #edf5e1;
   --dark: #272d2e;
   --light: #94b2b3;
@@ -20,7 +21,10 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--green);
+  /* background-color: var(--green); */
+  background: linear-gradient(var(--green-o), var(--green-o)),
+    url('./assets/grain.jpg');
+  background-size: cover;
   outline-color: var(--light);
 }
 ::selection {
@@ -39,6 +43,13 @@ h3 {
 p {
   color: var(--light);
   line-height: 24px;
+}
+
+.me {
+  height: 400px;
+  display: block;
+  margin: auto;
+  border: 10px solid var(--light);
 }
 
 .resume {
@@ -102,6 +113,8 @@ p {
   left: -50%;
   z-index: 4;
   border-radius: 4px;
+  margin: 0 12.5%;
+  max-width: -webkit-fill-available;
 }
 .progress-right {
   color: var(--green);
@@ -124,16 +137,19 @@ header {
   position: fixed;
   top: 0;
   font-size: 2em;
-  background-color: var(--green);
+
   padding: 0;
   margin-bottom: 3em;
   color: var(--peach);
-  z-index: 2;
-  width: 75%;
+  z-index: 3;
+  width: 100%;
   text-align: center;
   margin: 0 auto;
   left: 50%;
   transform: translate(-50%, 0);
+  background: linear-gradient(var(--green-o), var(--green-o)),
+    url('./assets/grain.jpg');
+  border: 1px solid #0c3a3940;
 }
 
 a:visited {
@@ -264,7 +280,7 @@ a:visited {
 }
 
 .contact {
-  padding-top: 2em;
+  padding-top: 20%;
   text-align: center;
   width: 100%;
 }
@@ -322,10 +338,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: var(--green);
+  background: linear-gradient(var(--green-o), var(--green-o)),
+    url('./assets/grain.jpg');
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
-  border-right: 5px solid var(--blue);
+  border-right: 5px solid var(--light);
 }
 
 /* Morph shape necessary with bubble or elastic */
@@ -412,8 +429,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
     padding-top: 0.8em;
     padding-left: 24px;
   }
-  .contact {
-    width: 70%;
+  .me {
+    height: 300px;
   }
 }
 
@@ -466,6 +483,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    margin: 0 12.5%;
+    max-width: -webkit-fill-available;
   }
   .content {
     padding: 2em 0em;
@@ -475,7 +494,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   .project {
     background: var(--peach);
     border: 8px solid var(--white);
-    color: var(--blue);
+    color: var(--light);
     /* border: none; */
     outline: none;
     font-size: 2em;
