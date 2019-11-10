@@ -46,9 +46,9 @@ p {
   padding: 6em 3em;
 }
 .resume-mobile {
-  margin: 1em 0em;
+  margin: 6em 0em;
   color: var(--peach);
-  padding: 0em 3em;
+  padding: 3em 3em;
 }
 .resume h1 {
   line-height: 60px;
@@ -391,20 +391,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
 @media only screen and (max-width: 600px) {
   .contact {
     font-size: 30px !important;
-  }
-  .resume-mobile h1 {
-    font-size: 1.8em;
-    margin: 20px 0px;
-  }
-  .resume-mobile h2 {
-    font-size: 1.2em;
-    margin: 20px 0px;
-    color: var(--white);
-    font-family: 'Poppins', sans-serif;
-  }
-  .resume-mobile p {
-    margin: 20px 0px;
-    font-size: 1em;
   }
 
   .resume {
