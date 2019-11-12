@@ -1,34 +1,35 @@
-import React from 'react';
-import { light, isMobile } from '../constants';
-import { FiMail } from 'react-icons/fi';
-import { GoMarkGithub } from 'react-icons/go';
-import { FaTwitter, FaLinkedin } from 'react-icons/fa';
-import useWindowDimensions from '../hooks/useWindowDimensions';
-import david from '../assets/david.jpg';
-import { blue } from 'ansi-colors';
+import React from "react";
+import { light, isMobile } from "../constants";
+import { FiMail } from "react-icons/fi";
+import { GoMail } from "react-icons/go";
+import { GoMarkGithub } from "react-icons/go";
+import { FaTwitter, FaLinkedin } from "react-icons/fa";
+import useWindowDimensions from "../hooks/useWindowDimensions";
+import david from "../assets/david.jpg";
+import { blue } from "ansi-colors";
 
 function Contact() {
   const { width } = useWindowDimensions();
   const size =
     isMobile() || width < 800
-      ? { height: 30, width: 30, padding: '0 2px' }
-      : { height: 70, width: 70, padding: '0 20px' };
+      ? { height: 30, width: 30, padding: "0 2px" }
+      : { height: 70, width: 70, padding: "0 20px" };
   const icons = [
     {
       icon: <GoMarkGithub className="icon" style={size} />,
-      text: 'GitHub',
-      link: 'https://github.com/davidnymanmusic',
+      text: "GitHub",
+      link: "https://github.com/davidnymanmusic"
     },
     {
       icon: <FaTwitter className="icon" style={size} />,
-      text: 'Twitter',
-      link: 'https://twitter.com/davidnyman',
+      text: "Twitter",
+      link: "https://twitter.com/davidnyman"
     },
     {
       icon: <FaLinkedin className="icon" style={size} />,
-      text: 'LinkedIn',
-      link: 'https://www.linkedin.com/in/david-nyman-music/',
-    },
+      text: "LinkedIn",
+      link: "https://www.linkedin.com/in/david-nyman-music/"
+    }
   ];
   return (
     <div className="content ">
@@ -40,7 +41,7 @@ function Contact() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FiMail className="icon" style={{ fontSize: 80 }}></FiMail>
+          <GoMail className="icon" style={{ fontSize: 80 }}></GoMail>
           <p>Email me</p>
         </a>
       </div>
@@ -50,7 +51,7 @@ function Contact() {
           <div
             key={index}
             className="icon"
-            onClick={() => window.open(i.link, '_blank')}
+            onClick={() => window.open(i.link, "_blank")}
           >
             {i.icon}
             {<p>{i.text}</p>}
