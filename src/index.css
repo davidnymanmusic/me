@@ -500,7 +500,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   .project {
     background: var(--peach);
     border: 8px solid var(--white);
-    color: var(--light);
+    color: var(--blue);
     /* border: none; */
     outline: none;
     font-size: 2em;
