@@ -97,7 +97,7 @@ function Resume(props) {
             when={scrollY > 200}
             duration={duration}
           >
-            <h1>Work work work work, work</h1>
+            <h1>Work History</h1>
             <h2>IBM Garage for Cloud, New York City 2018–2019</h2>
             <i>Projects</i>
             <p>
@@ -127,7 +127,9 @@ function Resume(props) {
               for external engagements.
             </p>
             <br></br>
-            <hr></hr>
+            <Reveal when={scrollY > 220}>
+              <hr></hr>
+            </Reveal>
             <h2>Skinno, New York City - 2018</h2>
             <i>iOS Developer Intern</i> <br></br>
             <p>
@@ -169,7 +171,9 @@ function Resume(props) {
           </FadeStop>
         </div>
         <Reveal when={scrollY > 250}>
-          <hr></hr>
+          <Reveal when={scrollY > 260}>
+            <hr></hr>
+          </Reveal>
         </Reveal>
         <div style={{ color: peach }}>
           <FadeStop stop={stop} when={scrollY > 350} duration={duration}>
@@ -178,10 +182,12 @@ function Resume(props) {
             <i>Music Composition for Film</i>
             <p>
               Studied the transformative power of music in relation to the
-              pyschological state watching films
+              pyschological state of watching films of all varities.
             </p>
           </FadeStop>
-          <hr></hr>
+          <Reveal when={scrollY > 360}>
+            <hr></hr>
+          </Reveal>
           <div style={{ color: peach }}>
             <FadeStop stop={stop} when={scrollY > 350} duration={duration}>
               <h1>Early Life</h1>

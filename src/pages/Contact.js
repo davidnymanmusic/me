@@ -31,6 +31,10 @@ function Contact() {
       link: "https://www.linkedin.com/in/david-nyman-music/"
     }
   ];
+
+  const image = {
+    image: david
+  };
   return (
     <div className="content ">
       <div className="contact">
