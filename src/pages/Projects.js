@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
-import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-const Projects = props => {
-  const [show, setshow] = useState(false);
-
+const Projects = () => {
   return (
     <div>
       <div className="content">
@@ -31,36 +28,8 @@ const Projects = props => {
             White Noise
           </button>
           <Link to="/" style={{ textDecoration: 'inherit' }}>
-            <button
-              id="site"
-              className="project"
-              onMouseEnter={() => setshow(true)}
-              onMouseLeave={() => setshow(false)}
-            >
-              {/* {show ? (
-                <>
-                  <FaArrowUp style={{ fontSize: 35, fontWeight: 100 }} />
-                  <FaArrowUp style={{ fontSize: 35, fontWeight: 100 }} />
-                </>
-              ) : (
-                <>
-                  <FaArrowDown style={{ fontSize: 35, fontWeight: 100 }} />
-                  <FaArrowDown style={{ fontSize: 35, fontWeight: 100 }} />
-                </>
-              )}
-              <br></br> */}
+            <button id="site" className="project">
               This Site
-              {/* {show ? (
-                <>
-                  <FaArrowDown style={{ fontSize: 35, fontWeight: 100 }} />
-                  <FaArrowDown style={{ fontSize: 35, fontWeight: 100 }} />
-                </>
-              ) : (
-                <>
-                  <FaArrowUp style={{ fontSize: 35, fontWeight: 100 }} />
-                  <FaArrowUp style={{ fontSize: 35, fontWeight: 100 }} />
-                </>
-              )} */}
             </button>
           </Link>
         </div>

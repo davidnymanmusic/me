@@ -9,11 +9,10 @@ function Header(props) {
   const showProgress = progress => {
     setProgress(Math.ceil(progress));
     props.getProgress(Math.ceil(progress));
-    console.log(progress, 'he');
   };
   const textSwitch = progress => {
     switch (true) {
-      case progress >= 100:
+      case progress >= 90:
         return 'Ancient History';
 
       case progress >= 80:

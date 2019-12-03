@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import IsScrolling from "react-is-scrolling";
-import Fade from "react-reveal/Fade";
-import Reveal from "react-reveal/Reveal";
+import React, { useState, useEffect } from 'react';
+import IsScrolling from 'react-is-scrolling';
+import Fade from 'react-reveal/Fade';
+import Reveal from 'react-reveal/Reveal';
 
-import { useScroll } from "../hooks/useScroll";
-import { peach, isMobile } from "../constants";
-import useWindowDimensions from "../hooks/useWindowDimensions";
-import { GoMarkGithub } from "react-icons/go";
-import { FaTwitter, FaLinkedin } from "react-icons/fa";
+import { useScroll } from '../hooks/useScroll';
+import { peach, isMobile } from '../constants';
+import useWindowDimensions from '../hooks/useWindowDimensions';
+import { GoMarkGithub } from 'react-icons/go';
+import { FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 const FadeStop = props =>
   props.stop ? <Fade {...props}>{props.children}</Fade> : <>{props.children}</>;
@@ -18,24 +18,24 @@ function Resume(props) {
   const { width } = useWindowDimensions();
   const size =
     isMobile() || width < 800
-      ? { height: 30, width: 30, padding: "0 2px" }
-      : { height: 70, width: 70, padding: "0 20px" };
+      ? { height: 30, width: 30, padding: '0 2px' }
+      : { height: 70, width: 70, padding: '0 20px' };
   const icons = [
     {
       icon: <GoMarkGithub className="icon" style={size} />,
-      text: "GitHub",
-      link: "https://github.com/davidnymanmusic"
+      text: 'GitHub',
+      link: 'https://github.com/davidnymanmusic',
     },
     {
       icon: <FaTwitter className="icon" style={size} />,
-      text: "Twitter",
-      link: "https://twitter.com/davidnyman"
+      text: 'Twitter',
+      link: 'https://twitter.com/davidnyman',
     },
     {
       icon: <FaLinkedin className="icon" style={size} />,
-      text: "LinkedIn",
-      link: "https://www.linkedin.com/in/david-nyman-music/"
-    }
+      text: 'LinkedIn',
+      link: 'https://www.linkedin.com/in/david-nyman-music/',
+    },
   ];
   const target = React.createRef();
 
@@ -53,12 +53,12 @@ function Resume(props) {
 
   return (
     <div
-      className={isMobile() || width <= 1000 ? "resume-mobile" : "resume"}
+      className={isMobile() || width <= 1000 ? 'resume-mobile' : 'resume'}
       ref={target}
     >
       {stop ? (
         <Fade forever={true} duration={2000}>
-          <h2 style={{ marginBottom: "5em", textAlign: "center" }}>
+          <h2 style={{ marginBottom: '5em', textAlign: 'center' }}>
             Start Scrolling
           </h2>
         </Fade>
@@ -86,12 +86,12 @@ function Resume(props) {
         </Reveal>
         <div
           style={{
-            color: peach
+            color: peach,
           }}
         >
           <FadeStop
             style={{
-              color: peach
+              color: peach,
             }}
             stop={stop}
             when={scrollY > 200}
@@ -108,16 +108,16 @@ function Resume(props) {
               in the 14+ locations around the world.
             </p>
             {[
-              "Node.js",
-              "React",
-              "PostgreSQL",
-              "Docker",
-              "Kubernetes",
-              "CI/CD",
-              "Agile",
-              "Kanban"
-            ].map(tag => (
-              <div className="tag" key="tag">
+              'Node.js',
+              'React',
+              'PostgreSQL',
+              'Docker',
+              'Kubernetes',
+              'CI/CD',
+              'Agile',
+              'Kanban',
+            ].map((tag, i) => (
+              <div className="tag" key={i}>
                 {tag}
               </div>
             ))}
@@ -137,8 +137,10 @@ function Resume(props) {
               skincare data company. Implemented a web quiz for determining a
               user’s skin type.
             </p>
-            {["iOS", "React Native", "React", "Node.js"].map(tag => (
-              <div className="tag">{tag}</div>
+            {['iOS', 'React Native', 'React', 'Node.js'].map((tag, i) => (
+              <div className="tag" key={i}>
+                {tag}
+              </div>
             ))}
             <br></br>
             <hr></hr>
@@ -151,18 +153,18 @@ function Resume(props) {
             </p>
             <h2>Clients</h2>
             {[
-              "Netflix",
-              "Microsoft",
-              "NPR",
-              "Buzzfeed",
-              "Norton Antivirus",
-              "Bacardi",
-              "Airbnb",
-              "Philips",
-              "Delta Airlines",
-              "Chase Bank",
-              "Selfridges",
-              "Bain Capital"
+              'Netflix',
+              'Microsoft',
+              'NPR',
+              'Buzzfeed',
+              'Norton Antivirus',
+              'Bacardi',
+              'Airbnb',
+              'Philips',
+              'Delta Airlines',
+              'Chase Bank',
+              'Selfridges',
+              'Bain Capital',
             ].map(tag => (
               <div className="tag-client" key={tag}>
                 {tag}
@@ -217,7 +219,7 @@ function Resume(props) {
                 <div
                   key={index}
                   className="icon"
-                  onClick={() => window.open(i.link, "_blank")}
+                  onClick={() => window.open(i.link, '_blank')}
                 >
                   {i.icon}
                   {<p>{i.text}</p>}
